@@ -40,7 +40,7 @@ MongoClient.connect("mongodb://localhost:27017/url_shortener", function(err, db)
       urls_collection.insert(url_data, function(err, doc) {
         if(err) { console.log("There was an error inserting into mongodb", err); }
         var return_data = { old_url: url, new_url: "localhost:8080/" + data["count"] }
-        response.end(JSON.stringify(doc));
+        response.end(JSON.stringify(return_data));
       });
     });
   });
