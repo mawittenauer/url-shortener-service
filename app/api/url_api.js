@@ -8,7 +8,6 @@ module.exports = function(app, db) {
   
   app.post('/new_url', urlencodedParser, function(request, response) {
     if(!request.body) return response.sendStatus(400);
-    console.log(JSON.stringify(request.body));
     var url = request.body.url;
     var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
     var url_regex = new RegExp(expression);
