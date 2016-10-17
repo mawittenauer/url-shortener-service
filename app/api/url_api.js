@@ -1,16 +1,15 @@
 module.exports = function(app, db) {
-  app.get('/:url_id', function(request, response) {
-    var url_id = request.params.url_id;
-    var url_collection = db.collection('urls');
-    url_collection.findOne( { "url_id" : parseInt(url_id) }, function(err, data) {
-      if(err) { console.log("There was an error finding that url", err); }
-      response.redirect("http://" + data["url"]);
-    });
-  });
-
-  app.get('/new/:url', function(request, response) {
-
-    var url = request.params.url;
+  var bodyParser = require('body-parser');
+  // create application/json parser 
+  var jsonParser = bodyParser.json();
+ 
+  // create application/x-www-form-urlencoded parser 
+  var urlencodedParser = bodyParser.urlencoded({ extended: false });
+  
+  app.post('/new_url', urlencodedParser, function(request, response) {
+    if(!request.body) return response.sendStatus(400);
+    console.log(JSON.stringify(request.body));
+    var url = request.body.url;
     var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
     var url_regex = new RegExp(expression);
 
@@ -30,6 +29,15 @@ module.exports = function(app, db) {
         var return_data = { old_url: url, new_url: "localhost:8080/" + data["count"] }
         response.end(JSON.stringify(return_data));
       });
+    });
+  });
+  
+  app.get('/:url_id', function(request, response) {
+    var url_id = request.params.url_id;
+    var url_collection = db.collection('urls');
+    url_collection.findOne( { "url_id" : parseInt(url_id) }, function(err, data) {
+      if(err) { console.log("There was an error finding that url", err); }
+      response.redirect("http://" + data["url"]);
     });
   });
 }

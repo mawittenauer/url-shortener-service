@@ -4,6 +4,6 @@ body
   div(class="container")
     h1(class="text-center") URL Shortening Service
     p(class="text-center") Enter Your URL below and we will return a shortened URL which will redirect to your original URL. Great for use on social media.
-    form(action="/new_url", class="text-center")
+    form(action="/new_url", class="text-center", method="POST")
       input(type="text", name="url", id="url")
       input(type="submit")
