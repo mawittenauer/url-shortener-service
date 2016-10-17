@@ -28,7 +28,7 @@ module.exports = function(app, db) {
         urls_collection.insert(url_data, function(err, doc) {
           if(err) { console.log("There was an error inserting into mongodb", err); }
           var return_data = { old_url: url, new_url: "localhost:8080/" + data["count"] }
-          response.end(JSON.stringify(return_data));
+          response.render('url', { url: return_data["new_url"] });
         });
       });
     }
