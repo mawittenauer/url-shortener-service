@@ -4,12 +4,13 @@ var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 
 var app = express();
+app.set('view engine', 'pug');
 
 MongoClient.connect("mongodb://localhost:27017/url_shortener", function(err, db) {
   if(err) { console.log("There was the following error connecting to the database", err); }
   
   app.get('/', function(request, response) {
-    response.end('Home Page');
+    response.render('index');
   });
   
   url_api(app, db);

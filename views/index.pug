@@ -1,0 +1,9 @@
+head
+  link(rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+body
+  div(class="container")
+    h1(class="text-center") URL Shortening Service
+    p(class="text-center") Enter Your URL below and we will return a shortened URL which will redirect to your original URL. Great for use on social media.
+    form(action="/new_url", class="text-center")
+      input(type="text", name="url", id="url")
+      input(type="submit")
