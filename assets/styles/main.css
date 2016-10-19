@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Amaranth', sans-serif;
 }
 
-p {
+p, input {
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -14,15 +14,22 @@ body {
   background-color: #3399ff;
 }
 
+input {
+  float: left;
+}
+
 input[type="submit"] {
   background-color: #ff9966;
   border: none;
-  height: 25px;
+  height: 30px;
+  width: 20%;
 }
 
 input[type="text"] {
-  height: 24.8px;
+  height: 29.8px;
+  width: 80%;
 }
+
 
 /************************
 HEADER
@@ -36,4 +43,7 @@ HOME PAGE
   background-color: #003366;
 }
 
-
+form {
+  width: 80%;
+  margin: 0 auto 30px;
+}
