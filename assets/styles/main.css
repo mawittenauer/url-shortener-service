@@ -1,0 +1,39 @@
+/************************
+GENERAL
+************************/
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Amaranth', sans-serif;
+}
+
+p {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+  background-color: #3399ff;
+}
+
+input[type="submit"] {
+  background-color: #ff9966;
+  border: none;
+  height: 25px;
+}
+
+input[type="text"] {
+  height: 24.8px;
+}
+
+/************************
+HEADER
+************************/
+
+/************************
+HOME PAGE
+************************/
+
+.jumbotron {
+  background-color: #003366;
+}
+
+

@@ -5,6 +5,7 @@ var MongoClient = mongodb.MongoClient;
 
 var app = express();
 app.set('view engine', 'pug');
+app.use(express.static(__dirname + '/assets'));
 
 MongoClient.connect("mongodb://localhost:27017/url_shortener", function(err, db) {
   if(err) { console.log("There was the following error connecting to the database", err); }
