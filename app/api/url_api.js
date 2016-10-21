@@ -42,7 +42,7 @@ module.exports = function(app, db) {
         response.end('That was an incorrect url.');
       }
       
-      if(data != null)
+      if(data != null) {
         response.redirect(data["url"]);
       } else {
         response.end('That is an incorrect url');                     
