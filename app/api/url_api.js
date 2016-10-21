@@ -40,8 +40,9 @@ module.exports = function(app, db) {
       if(err) { 
         console.log("There was an error finding that url", err); 
         response.end('That was an incorrect url.');
+      } else {
+        response.redirect(data["url"]);
       }
-      response.redirect(data["url"]);
     });
   });
 }
