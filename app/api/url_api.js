@@ -37,7 +37,10 @@ module.exports = function(app, db) {
     var url_id = request.params.url_id;
     var url_collection = db.collection('urls');
     url_collection.findOne( { "url_id" : parseInt(url_id) }, function(err, data) {
-      if(err) { console.log("There was an error finding that url", err); }
+      if(err) { 
+        console.log("There was an error finding that url", err); 
+        response.end('That was an incorrect url.');
+      }
       response.redirect(data["url"]);
     });
   });
