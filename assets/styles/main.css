@@ -40,7 +40,7 @@ HOME PAGE
 ************************/
 
 .jumbotron {
-  background-color: #003366;
+  background-color: #003366 !important;
 }
 
 form {
