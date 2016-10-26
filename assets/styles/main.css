@@ -19,6 +19,8 @@ input {
 }
 
 input[type="submit"] {
+  -webkit-appearance: none;
+  border-radius: 0;
   background-color: #ff9966;
   border: none;
   height: 30px;
