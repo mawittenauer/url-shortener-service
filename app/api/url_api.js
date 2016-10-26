@@ -50,7 +50,7 @@ module.exports = function(app, db) {
       if(data != null) {
         response.redirect(data["url"]);
       } else {
-        response.end('That is an incorrect url');                     
+        response.end('That is an incorrect url');
       }
     });
   });
