@@ -1,5 +1,6 @@
 module.exports = function(app, db) {
   var bodyParser = require('body-parser');
+  
   // create application/json parser 
   var jsonParser = bodyParser.json();
  
@@ -12,8 +13,12 @@ module.exports = function(app, db) {
     var expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
     var url_regex = new RegExp(expression);
 
-    if(!url.match(url_regex)) { 
-      response.end('That is not a valid url');
+    if(!url.match(url_regex)) {
+      response.render('index', function(err, html) {
+        if(err) console.log(err);
+        html += "<script>alert('URL must be in http://www.example.com format')</script>";
+        response.end(html);
+      });
     } else {
       var counter_collection = db.collection('counter');
       counter_collection.update( { "id" : "counter" }, { $inc: { count: 1 } }, function(err, data) {
