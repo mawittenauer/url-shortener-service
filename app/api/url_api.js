@@ -31,7 +31,7 @@ module.exports = function(app, db) {
         var url_data = { url: url, url_id: data["count"] }
         urls_collection.insert(url_data, function(err, doc) {
           if(err) { console.log("There was an error inserting into mongodb", err); }
-          var return_data = { old_url: url, new_url: "localhost:8080/" + data["count"] }
+          var return_data = { old_url: url, new_url: "https://mike-url.herokuapp.com/" + data["count"] }
           response.render('url', { url: return_data["new_url"] });
         });
       });
